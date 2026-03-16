@@ -1,0 +1,10 @@
+# Paths for every POSIX shell to use
+PATH="${HOME}/git-local-repos/scripts"
+PATH="${PATH}:${HOME}/.local/bin"
+PATH="${PATH}:/usr/local/bin:/bin:/usr/bin:/snap/bin"
+
+# Use Vim as the default editor, even though we typically don't use it
+EDITOR="vim"
+
+export PATH
+export EDITOR
