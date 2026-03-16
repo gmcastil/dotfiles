@@ -1,0 +1,15 @@
+# Intended to be sourced into a running interactive login (via ~/.bash_profile)
+# or non-login shell (via ~/.bashrc). Some of these are platform specific.
+
+{{ if eq .chezmoi.os "darwin" }}
+alias ls='ls -G'
+{{ else }}
+alias ls='ls --group-directories-first --color=auto';;
+
+alias ll='ls -Alh'
+alias rm='rm -v'
+alias cp='cp -v'
+alias mv='mv -v'
+
+alias tclsh='rlwrap tclsh'
+
