@@ -3,4 +3,8 @@
 {{ if or (ne .chezmoi.os "linux") .embedded }}
 dot_Xilinx
 {{ end }}
+{{ if ne .chezmoi.os "darwin" }}
+executable_dot_sleep
+executable_dot_wakeup
+{{ end }}
 
