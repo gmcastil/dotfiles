@@ -1,5 +1,5 @@
 # Only clone board files on full Linux workstations, so use something
-# like `chezmois init --apply --data embedded=true
+# like "chezmois init --apply --data embedded=true"
 {{ if and (eq .chezmois.os "linux") (not .embedded) }}
 ["git-local-repos/Avnet/bdf"]
     type = "git-repo"
