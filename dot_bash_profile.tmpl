@@ -1,0 +1,18 @@
+# Pick up environment variables that should be available to all POSIX
+# shells not just bash
+if [[ -f "${HOME}/.profile" ]]; then
+  source "${HOME}/.profile"
+fi
+
+# For all other items that are set for interactive, non-login shells we look to
+# .bashrc instead.  Note that on OS X, the Terminal app runs a login shell for
+# every tab or window that is opened
+if [[ -f "${HOME}/.bashrc" ]]; then
+  source "${HOME}/.bashrc"
+fi
+
+# If homebrew is installed, then we set some stuff for that too
+{{ if eq .chezmoi.os "darwin" }}
+[[ -x "/opt/homebrew/bin/brew" ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end }}
+

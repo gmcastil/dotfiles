@@ -1,0 +1,40 @@
+# -- Exports for interactive shells
+#
+# The coreutils package on Ubuntu 20.04 has started wrapping strings in its
+# output with single quotes (') for reasons that are completely beyond me. Fix
+# this behavior in interactive shells and set the quoting style to be literal.
+# Yet another reason to never parse the output of the 'ls' command
+export QUOTING_STYLE=literal
+
+# Rather than overwriting the history file (which is the default behavior for
+# some reason), append to it instead.
+shopt -s histappend
+
+export HISTSIZE=1000
+export HISTFILESIZE=10000
+
+# -- Aliases
+[[ -f "${HOME}/.aliases" ]] && source "${HOME}/.aliases"
+
+# -- Set prompt command
+[[ -f "${HOME}/.prompt" ]] && source "${HOME}/.prompt"
+
+# -- Less needs some configuration to be useful
+export LESS=" -R -X -I -F"
+
+# -- Manpage customization
+[[ -f "${HOME}/.less_termcap" ]] && source "${HOME}/.less_termcap"
+export MANPAGER='less -s -M +Gg'
+
+# -- List Directory Colors
+if [[ -x /usr/bin/dircolors ]]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# Get rid of the scourge that is programmable completion
+complete -r
+
+# Vim customization is done elsewhere, but we need to make sure that tools like
+# git are aware we wish to use vim instead of GNU Nano
+export EDITOR=vim
+
