@@ -4,7 +4,7 @@
 {{ if eq .chezmoi.os "darwin" }}
 alias ls='ls -G'
 {{ else }}
-alias ls='ls --group-directories-first --color=auto';;
+alias ls='ls --group-directories-first --color=auto'
 {{ end }}
 
 alias ll='ls -Alh'
