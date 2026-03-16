@@ -1,0 +1,13 @@
+# Only clone board files on full Linux workstations, so use something
+# like `chezmois init --apply --data embedded=true
+{{ if and (eq .chezmois.os "linux") (not .embedded) }}
+["git-local-repos/Avnet/bdf"]
+    type = "git-repo"
+    url = "https://github.com/Avnet/bdf.git"
+    rereshPeriod = "0s"
+
+["git-local-repos/Digilent/vivado-boards"]
+    type = "git-repo"
+    url = "https://github.com/Digilent/vivado-boards.git"
+    refreshPeriod = "0s"
+{{ end }}
