@@ -1,7 +1,3 @@
-# Set embedded to be a default of false
-[data]
-    embedded = false
-
 # Only clone board files on full Linux workstations, so use something
 # like "chezmoi init --apply --data embedded=true"
 {{ if and (eq .chezmoi.os "linux") (not .embedded) }}
