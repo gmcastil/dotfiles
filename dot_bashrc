@@ -38,3 +38,9 @@ complete -r
 # git are aware we wish to use vim instead of GNU Nano
 export EDITOR=vim
 
+# Rust adds this
+[[ -s "${HOME}/.cargo/env" ]] && source "${HOME}/.cargo/env"
+
+## NVM does this as well
+export NVM_DIR="$HOME/.nvm"
+[[ -s "${NVM_DIR}/nvm.sh" ]] && source "${NVM_DIR}/nvm.sh"
