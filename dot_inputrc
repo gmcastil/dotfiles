@@ -1,0 +1,13 @@
+# Use menu-complete to cycle through autocomplet possibilities
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+# Show completions immediately on first tab
+set show-all-if-ambiguous off
+set completion-query-items -1
+
+# Color ls-style completions
+set colored-stats on
+
+# Don't ask to display large lists
+set completion-query-items 0
